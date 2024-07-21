@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './styles/AddMovieForm.css';
+import config from '../config';
+
 
 const AddMovieForm = () => {
   const [movie, setMovie] = useState({
@@ -22,7 +24,7 @@ const AddMovieForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3004/api/movies', movie);
+      const response = await axios.post(config.BASE_URL_CREATEMOVIE, movie);
       console.log('Movie added:', response.data);
     } catch (err) {
       console.error('Error adding movie:', err);
