@@ -21,7 +21,7 @@ const UpdateSalas = () => {
     const fetchSalas = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3003/api/cinemas/${id}`);
+        const response = await axios.get(`http://lb-list-rooms-694327205.us-east-2.elb.amazonaws.com/api/cinemas/${id}`);
         setSalas(response.data);
         setLoading(false);
       } catch (err) {
@@ -43,7 +43,7 @@ const UpdateSalas = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:3007/api/cinemas/${id}`, sala);
+      await axios.put(`http://lb-update-room-1621430234.us-east-2.elb.amazonaws.com/api/cinemas/${id}`, sala);
       alert('Cinema updated successfully!');
       navigate('/cinema');
     } catch (err) {

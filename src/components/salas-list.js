@@ -14,7 +14,7 @@ const SalasList = () => {
 
   const fetchSalas = async () => {
     try {
-      const response = await axios.get('http://localhost:3003/api/cinemas');
+      const response = await axios.get('http://lb-list-rooms-694327205.us-east-2.elb.amazonaws.com/api/cinemas');
       setSalas(response.data);
     } catch (err) {
       console.error('Error fetching cinemas:', err);

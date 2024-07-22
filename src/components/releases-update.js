@@ -15,7 +15,7 @@ const EditMovie = () => {
 
   const fetchMovie = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:3050/movies/${id}`);
+      const response = await axios.get(`http://lb-releases-115719938.us-east-2.elb.amazonaws.com/movies/${id}`);
       const movie = response.data;
       setTitle(movie.title);
       setDescription(movie.description);

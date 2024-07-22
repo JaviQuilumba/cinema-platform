@@ -6,7 +6,7 @@ import './styles/snack-list.css';
 const UpdateSnack = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const role = localStorage.getItem('role'); // Recuperar el rol del usuario
+  const role = localStorage.getItem('role'); 
 
   const [snack, setSnack] = useState({
     name: '',
@@ -22,14 +22,14 @@ const UpdateSnack = () => {
 
   useEffect(() => {
     if (role !== 'admin') {
-      navigate('/snacks'); // Redirigir si el usuario no es admin
+      navigate('/snacks');
       return;
     }
 
     const fetchSnack = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3012/api/snacks/${id}`);
+        const response = await axios.get(`http://lb-list-snacks-215569271.us-east-2.elb.amazonaws.com/api/snacks/${id}`);
         setSnack(response.data);
         setLoading(false);
       } catch (err) {
@@ -51,7 +51,7 @@ const UpdateSnack = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:3013/api/snacks/${id}`, snack);
+      await axios.put(`http://lb-update-snacks-967319583.us-east-2.elb.amazonaws.com/api/snacks/${id}`, snack);
       alert('Snack updated successfully!');
       navigate('/snacks');
     } catch (err) {
@@ -61,7 +61,7 @@ const UpdateSnack = () => {
   };
 
   const handleCancel = () => {
-    navigate('/'); // Redirigir al inicio
+    navigate('/');
   };
 
   if (loading) return <div>Loading...</div>;
@@ -132,7 +132,7 @@ const UpdateSnack = () => {
           />
         </label>
         <button type="submit">Update Snack</button>
-        <button type="button" onClick={handleCancel}>Cancel</button> {/* Botón de Cancelar */}
+        <button type="button" onClick={handleCancel}>Cancel</button> {}
       </form>
     </div>
   );

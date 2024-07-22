@@ -16,7 +16,7 @@ const MovieList = () => {
     genre: ''
   });
 
-  const role = localStorage.getItem('role'); // Recuperar el rol del usuario
+  const role = localStorage.getItem('role'); 
 
   useEffect(() => {
     const fetchMovies = async () => {

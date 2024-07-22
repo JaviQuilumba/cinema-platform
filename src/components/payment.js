@@ -8,7 +8,7 @@ const PaymentsList = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axios.get('http://localhost:3080/api/payments');
+        const response = await axios.get('http://lb-payments-1163117910.us-east-2.elb.amazonaws.com/api/payments');
         setPayments(response.data);
       } catch (err) {
         console.error('Error fetching payments:', err);

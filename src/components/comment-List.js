@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import './styles/commentList.css'; // Agrega estilos si es necesario
+import { useNavigate } from 'react-router-dom'; 
+import './styles/commentList.css'; 
 
 const CommentList = () => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [showComments, setShowComments] = useState(false); // Controlar la visibilidad de los comentarios
-  const navigate = useNavigate(); // Inicializa el hook useNavigate
+  const [showComments, setShowComments] = useState(false);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get('http://localhost:3090/api/comments');
+        const response = await axios.get('http://lb-comments-2073048839.us-east-2.elb.amazonaws.com/api/comments');
         setComments(response.data);
         setLoading(false);
       } catch (err) {
@@ -26,11 +26,11 @@ const CommentList = () => {
   }, []);
 
   const toggleComments = () => {
-    setShowComments(prev => !prev); // Alternar la visibilidad
+    setShowComments(prev => !prev);
   };
 
   const handleBackToHome = () => {
-    navigate('/'); // Redirige al home
+    navigate('/');
   };
 
   if (loading) return <p>Loading...</p>;

@@ -6,8 +6,8 @@ import config from '../config';
 
 const SnacksList = () => {
   const [snacks, setSnacks] = useState([]);
-  const role = localStorage.getItem('role'); // Recuperar el rol del usuario
-  const navigate = useNavigate(); // Hook para la navegación
+  const role = localStorage.getItem('role'); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     fetchSnacks();
@@ -25,9 +25,9 @@ const SnacksList = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this snack?')) {
       try {
-        await axios.delete(`http://localhost:3014/api/snacks/${id}`);
+        await axios.delete(`http://lb-delete-snacks-61953457.us-east-2.elb.amazonaws.com/api/snacks/${id}`);
         alert('Snack deleted successfully!');
-        fetchSnacks(); // Refetch the list after deletion
+        fetchSnacks(); 
       } catch (err) {
         console.error('Error deleting snack:', err);
         alert('Failed to delete snack. Please try again.');
@@ -36,7 +36,7 @@ const SnacksList = () => {
   };
 
   const handleHomeClick = () => {
-    navigate('/'); // Redirigir al inicio
+    navigate('/');
   };
 
   return (

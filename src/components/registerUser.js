@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import './styles/RegisterUser.css'; // Asegúrate de usar la ruta correcta
+import { useNavigate } from 'react-router-dom'; 
+import './styles/RegisterUser.css'; 
 import axios from 'axios';
 
 const RegisterUser = () => {
@@ -9,27 +9,27 @@ const RegisterUser = () => {
   const [password, setPassword] = useState('');
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
-  const role = 'cliente'; // Rol fijo como "cliente"
-  const navigate = useNavigate(); // Inicializa el hook useNavigate
+  const role = 'client'; 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = { username, email, password, first_name, last_name, role };
 
     try {
-      // Realiza la solicitud POST al backend para registrar el usuario
-      await axios.post('http://localhost:4001/api/users', newUser);
+      
+      await axios.post('http://lb-register-user-1381072137.us-east-2.elb.amazonaws.com/api/users', newUser);
       console.log('User registered:', newUser);
       alert('User registered successfully!');
       
-      // Limpiar el formulario después de enviar
+     
       setUsername('');
       setEmail('');
       setPassword('');
       setFirstName('');
       setLastName('');
 
-      // Redirige al home
+      
       navigate('/');
     } catch (error) {
       console.error('Error registering user:', error);
