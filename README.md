@@ -30,7 +30,6 @@ To use the project you must execute the commands described in the previous point
 #### Requirements:
 - Locally you must switch to the ports of your choice.
 - If you want to implement it in AWS, you must have knowledge in ECR, ECS, RDS, AWS, KAFKA, LOAD BALANCE, API GATEWAY.
-- 
 
 ####  Collaborators :tw-1f466:
 William Javier Quilumba Imacana
