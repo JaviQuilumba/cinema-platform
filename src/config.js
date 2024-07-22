@@ -6,6 +6,6 @@ const config = {
     BASE_URL_AUTH: 'http://lb-apigateway-1412267724.us-east-2.elb.amazonaws.com/gateway/api/auth/login',
 
   };
-  
+  //
   export default config;
   
